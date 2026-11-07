@@ -1,16 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import ContactSection from './ContactSection.astro';
-// Subpages were never captured by the Wayback Machine. Content here is reused from the
+// Subpages were never captured by any public archive. Content here is reused from the
 // archived homepage; replace with the client's real copy when they send it (see README).
 interface Props { title: string; contact?: boolean }
 const { title, contact = true } = Astro.props;
 ---
 <Base title={title}>
-  <section class="page-hero" style="background-image:radial-gradient(circle at top left,rgba(40,40,40,.79) 0%,rgba(40,40,40,.86) 100%),url(/images/construction-35.jpg)">
+  <section class="tl-page-hero" style="background-image:radial-gradient(circle at top left,rgba(40,40,40,.79) 0%,rgba(40,40,40,.86) 100%),url(/images/construction-35.jpg)">
     <h1>{title}</h1>
   </section>
-  <section class="container page-body">
+  <section class="tl-page-body">
     <slot />
   </section>
   {contact && <ContactSection />}
