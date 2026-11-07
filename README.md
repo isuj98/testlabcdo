@@ -27,7 +27,7 @@ npm run build    # static site in dist/
 
 ## Sources searched (2026-11-07)
 
-- Wayback Machine: 16 captures, all of the homepage only. No subpage was ever captured.
+- Wayback Machine: full domain listing (112 URLs, every path and query string) re-checked 2026-11-07. Only the homepage HTML was ever captured; 6 homepage captures exist (Feb 3 to Mar 21 2025) and the site uses the newest. Probed `?page_id=`, `?p=`, sitemaps, feed, `wp-json/wp/v2`, shop/product and every subpage slug on both hosts: nothing.
 - archive.today and web search: no subpage copies.
 - Common Crawl: index server returned 504 for every query on 2026-11-07 (even example.com). Not checked; retry later with `https://index.commoncrawl.org/CC-MAIN-2025-13-index?url=*.testlabcdo.com&output=json`.
 - Facebook (APBTestLab) needs a login; JobStreet has a short company profile only.
