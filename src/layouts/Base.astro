@@ -1,0 +1,66 @@
+---
+interface Props { title?: string }
+const { title } = Astro.props;
+const pageTitle = title ? `${title} | Test Lab CDO` : 'Test Lab CDO | Engineering & Geotech';
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/about-testlab/', label: 'About TestLab' },
+  { href: '/our-services/', label: 'Our Services', children: [
+    { href: '/our-services/geotechnical-drilling/', label: 'Geotechnical Drilling' },
+    { href: '/our-services/on-site-testing/', label: 'On-Site Testing' },
+    { href: '/our-services/laboratory-testing/', label: 'Laboratory Testing' },
+    { href: '/our-services/construction-material-testing/', label: 'Construction Material Testing' },
+  ] },
+  { href: '/our-projects/', label: 'Our Projects' },
+  { href: '#', label: 'Products', children: [
+    { href: '/drilling-machines/', label: 'Drilling Machines' },
+    { href: '/material-testing-equipment/', label: 'Material Testing Equipment' },
+  ] },
+  { href: '/contact-us/', label: 'Contact Us' },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <link rel="icon" href="/images/cropped-testlab_icon-1-32x32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/images/cropped-testlab_icon-1-180x180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Rubik:wght@500;600;700&family=Adamina&display=swap" />
+  <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo"><img src="/images/Testlab-Logo.png" alt="Test Lab CDO" width="1310" height="726" /></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu" />
+      <label for="nav-toggle" class="nav-burger" aria-hidden="true">☰</label>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          {nav.map((item) => (
+            <li class={item.children ? 'has-sub' : ''}>
+              <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+              {item.children && (
+                <ul class="sub-menu">
+                  {item.children.map((c) => <li><a href={c.href} aria-current={path === c.href ? 'page' : undefined}>{c.label}</a></li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main><slot /></main>
+
+  <footer class="site-footer">
+    <img src="/images/Testlab-Logo.png" alt="Test Lab CDO" width="130" height="72" />
+    <p>© 2025 TestLab CDO | Developed by 🦊 DevFox</p>
+  </footer>
+</body>
+</html>

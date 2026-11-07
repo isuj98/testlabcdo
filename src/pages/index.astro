@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+
+const services = [
+  { title: 'Geotechnical Drilling', pre: 'Utilizing ', em: 'advanced drilling equipment', post: ', we conduct thorough subsurface investigations to assess soil and rock properties, ensuring the stability and safety of your construction projects.' },
+  { title: 'Laboratory Testing', pre: 'Equipped with ', em: 'state-of-the-art facilities', post: ', we offer precise laboratory analyses of construction materials to ensure compliance with industry standards.' },
+  { title: 'Construction Material Testing', pre: 'We conduct ', em: 'rigorous testing of construction materials', post: ' to verify their integrity and performance, aiding in quality assurance and control.' },
+];
+const quote = 'Lorem ipsum dolor sit adipiscing elit. Nullam lectus consectetur eu sapien. Proin cursus, dolor a mollis risus dolor fermentum massa, a commodo elit dui sit amet tortor.';
+const clients = [
+  ['dpwh-logo-testlab-cdo.png', 'DPWH'],
+  ['shell-logo.png', 'Shell'],
+  ['MERALCO-INDUSTRIAL-ENGINEERING-SERVICES-CORPORATION.png', 'Meralco Industrial Engineering Services Corporation'],
+  ['DEPARTMENT-OF-EDUCATION-PNG.png', 'Department of Education'],
+  ['SIEYUAN-ELECTRIC-CO.-LTD.png', 'Sieyuan Electric Co., Ltd.'],
+  ['PHIL-GOLD-PROCESSING-REFINING-CORPORATION.png', 'Phil. Gold Processing & Refining Corp.'],
+  ['FAST-CARGO-LOGISTICS-CORPORATION.png', 'Fast Cargo Logistics Corporation'],
+  ['SMCC-PHILIPPINES.png', 'SMCC Philippines, Inc.'],
+];
+---
+<Base>
+  <section class="hero" style="background-image:radial-gradient(circle at top left,rgba(40,40,40,.79) 0%,rgba(40,40,40,.86) 100%),url(/images/construction-35.jpg)">
+    <img class="hero-logo" src="/images/Testlab-Logo.png" alt="TestLab Engineering & Geotech Services" width="1310" height="726" />
+    <p>TestLab commitment is to put our customer first by providing excellent service and working to quality standards. This is what we do and this is why we exist.</p>
+  </section>
+
+  <section class="services container">
+    <h2 class="heading center">Product and Services</h2>
+    <span class="bar center"></span>
+    <div class="grid-3">
+      {services.map((s) => (
+        <div class="blurb">
+          <img src="/images/construction-icon-7-gray.png" alt="" width="48" height="48" />
+          <div>
+            <h4>{s.title}</h4>
+            <p>{s.pre}<strong>{s.em}</strong>{s.post}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="center"><a class="btn" href="/our-projects/">View Our Projects</a></p>
+  </section>
+
+  <section class="split">
+    <div class="split-green">
+      <div class="eco">
+        <span class="chev" aria-hidden="true">»</span>
+        <div>
+          <h4>Eco Friendly Geotech</h4>
+          <p>At <strong>TestLab</strong>, we are committed to sustainable practices that protect our environment while ensuring the integrity of your projects. Our eco-friendly geotechnical solutions are designed to minimize environmental impact and promote responsible construction methods. We utilize innovative techniques and materials that not only enhance performance but also contribute to a greener future. Join us in our mission to build responsibly and sustainably.</p>
+        </div>
+      </div>
+      <img class="dpwh" src="/images/dpwh-logo-testlab-cdo.png" alt="DPWH" width="160" height="160" />
+      <p class="accredited">DPWH -BRS<br />ACCREDITED LABORATORY</p>
+    </div>
+    <div class="split-right">
+      <div class="split-copy">
+        <h2 class="heading">No Project Too Big Or Too Small</h2>
+        <span class="bar"></span>
+        <div class="cols-2">
+          <p>We believe that innovation is the cornerstone of progress. Our team is dedicated to exploring new methodologies and technologies that enhance the quality and efficiency of our services. We are not just about meeting standards; we strive to set them. By investing in research and development, we ensure that our clients benefit from the latest advancements in geotechnical engineering. Our commitment to continuous improvement drives us to seek out creative solutions that address the unique challenges of each project. Partner with us to experience a forward-thinking approach that prioritizes excellence and sustainability in every aspect of our work.</p>
+          <p>We pride ourselves on our ability to adapt to the evolving needs of our clients, ensuring that we remain at the forefront of the engineering and geotechnical industry. With a focus on collaboration and communication, we work closely with you to understand your specific requirements and deliver results that align with your vision. Experience the difference of a partner who truly cares about your success and is committed to delivering excellence in every aspect of our service.</p>
+        </div>
+      </div>
+      <div class="cta-bar">
+        <h3>Get Free Consultation</h3>
+        <!-- The original "Estimate Form" button had an empty link. Points to contact form until the client supplies the real form. -->
+        <a class="btn-outline green" href="/contact-us/">Estimate Form</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="years" style="background-image:radial-gradient(circle at top left,rgba(40,40,40,.79) 0%,rgba(40,40,40,.86) 100%),url(/images/construction-34.jpg)">
+    <span class="bar center"></span>
+    <h2>We’ve Been Building and Testing for Over<br />14 years</h2>
+    <p>At <strong>TestLab</strong>, we prioritize our clients by delivering exceptional service and adhering to stringent quality standards. With over 14 years of experience in the industry, we have established ourselves as a trusted partner in engineering and geotechnical services.</p>
+    <a class="btn" href="/about-testlab/">About Us</a>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="heading center">Our Client Testimonials</h2>
+    <span class="bar center"></span>
+    <div class="grid-3 narrow">
+      {[1, 2, 3].map(() => (
+        <figure class="testimonial">
+          <img src="/images/stars-5.png" alt="5 stars" width="102" height="17" />
+          <blockquote>“{quote}”</blockquote>
+          <figcaption>JOHN SMITH</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <h2 class="heading center trusted">Trusted by the Best</h2>
+    <div class="logos">
+      {clients.map(([f, alt]) => <img src={`/images/${f}`} alt={alt} loading="lazy" />)}
+    </div>
+  </section>
+
+  <ContactSection />
+</Base>
